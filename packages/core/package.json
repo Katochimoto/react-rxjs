@@ -1,5 +1,5 @@
 {
-  "version": "0.10.8",
+  "version": "0.11.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/re-rxjs/react-rxjs.git"
@@ -26,8 +26,8 @@
   ],
   "scripts": {
     "build": "npm run build:ts && npm run build:esm2017 && npm run build:esm2019 && npm run build:cjs:dev && npm run build:cjs:prod",
-    "build:esm2019": "esbuild src/index.tsx --bundle --outfile=./dist/core.es2019.mjs --target=es2019 --external:react --external:rxjs --external:@rx-state/core --external:use-sync-external-store --format=esm --sourcemap",
-    "build:esm2017": "esbuild src/index.tsx --bundle --outfile=./dist/core.es2017.js --target=es2017 --external:react --external:rxjs --external:@rx-state/core --external:use-sync-external-store --format=esm --sourcemap",
+    "build:esm2019": "esbuild src/index.tsx --bundle --outfile=./dist/core.es2019.mjs --target=es2019 --external:react --external:rxjs --external:@rx-state/core --format=esm --sourcemap",
+    "build:esm2017": "esbuild src/index.tsx --bundle --outfile=./dist/core.es2017.js --target=es2017 --external:react --external:rxjs --external:@rx-state/core --format=esm --sourcemap",
     "build:cjs:dev": "node cjsBuild.js",
     "build:cjs:prod": "node cjsBuild.js --prod",
     "build:ts": "tsc -p ./tsconfig-build.json --outDir ./dist --skipLibCheck --emitDeclarationOnly",
@@ -38,7 +38,7 @@
     "prepack": "npm run build"
   },
   "peerDependencies": {
-    "react": ">=16.8.0",
+    "react": ">=19.0.0",
     "rxjs": ">=7"
   },
   "prettier": {
@@ -52,10 +52,6 @@
     "Victor Oliva (https://github.com/voliva)"
   ],
   "dependencies": {
-    "@rx-state/core": "0.1.4",
-    "use-sync-external-store": "^1.4.0"
-  },
-  "devDependencies": {
-    "@types/use-sync-external-store": "^0.0.6"
+    "@rx-state/core": "0.1.4"
   }
 }

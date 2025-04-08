@@ -1,17 +1,4 @@
-const path = require("path")
-
 const isProd = process.argv[2] === "--prod"
-
-const fixCjsPlugin = {
-  name: "fixCJS",
-  setup(build) {
-    build.onResolve({ filter: /useSyncExternalStore/ }, (args) => {
-      return {
-        path: path.join(args.resolveDir, args.path + "Cjs.ts"),
-      }
-    })
-  },
-}
 
 require("esbuild")
   .build({
@@ -22,10 +9,9 @@ require("esbuild")
       : "./dist/core.cjs.development.js",
     target: "es2015",
     minify: isProd,
-    external: ["react", "rxjs", "@rx-state/core", "use-sync-external-store"],
+    external: ["react", "rxjs", "@rx-state/core"],
     format: "cjs",
     sourcemap: true,
-    plugins: [fixCjsPlugin],
   })
   .catch((error) => {
     console.error(error)

@@ -6,8 +6,7 @@ import {
   StatePromise,
   SUSPENSE,
 } from "@rx-state/core"
-import { useRef, useState } from "react"
-import useSyncExternalStore from "./internal/useSyncExternalStore"
+import { useRef, useState, useSyncExternalStore } from "react"
 import { useSubscription } from "./Subscribe"
 
 type VoidCb = () => void

@@ -3,6 +3,3 @@
 node_modules
 coverage
 .cache
-dist/**
-!dist/index.cjs
-!dist/index.js
